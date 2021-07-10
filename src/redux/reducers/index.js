@@ -3,12 +3,14 @@ import { combineReducers } from "redux";
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-const appReducer = combineReducers({});
+import userReducer from "./form"
+
+const appReducer = combineReducers({userReducer});
 
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: [],
+  whitelist: ["userReducer"],
 };
 
 const rootReducer = (state, action) => {
