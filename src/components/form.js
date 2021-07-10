@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import "react-datepicker/dist/react-datepicker.css";
 
 const Form = () => {
   const {
@@ -50,10 +49,10 @@ const Form = () => {
         {errors.gender && <span>Select the gender</span>}
         <br />
         <label>Date</label>
-        <input type="date" {...register("date")} />
+        <input type="date" {...register("date")} min={new Date().toISOString().substring(0, 10)}/>
         <br />
         <label> Time</label>
-        <input type="time" {...register("time")} />
+        <input type="time" {...register("time")} min="07:00"/>
         <br />
         <input type="submit" />
       </form>
