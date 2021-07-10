@@ -52,7 +52,7 @@ const Form = () => {
         <input type="date" {...register("date")} min={new Date().toISOString().substring(0, 10)}/>
         <br />
         <label> Time</label>
-        <input type="time" {...register("time")} min="07:00"/>
+        <input type="time" {...register("time")}/>
         <br />
         <input type="submit" />
       </form>
