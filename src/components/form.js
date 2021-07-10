@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
 const Form = () => {
@@ -8,14 +7,11 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
-    reset,
   } = useForm();
 
   const onSubmit = (value) => {
     console.log(value);
   };
-  const dateReceived = watch("expiryAt");
 
   return (
     <div>
