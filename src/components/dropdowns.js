@@ -22,7 +22,11 @@ const ReactDropdown = (props) => {
     <>
       <select name="cars" id="cars" value={selectValue} onChange={handleChange}>
         {props.value.map((propValue, key) => {
-          return <option value={propValue}>{propValue}</option>;
+          return (
+            <option value={propValue} key={propValue+3}>
+              {propValue}
+            </option>
+          );
         })}
       </select>
     </>
