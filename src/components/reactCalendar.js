@@ -1,11 +1,20 @@
 import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
+import ReactModal from './modal'
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { connect } from "react-redux";
 const localizer = momentLocalizer(moment);
 
 const ReactCalendar = (props) => {
+const [modal,setModal]=useState(false)
+const [userDetails,setUserDetails]=useState(null)
+  const handleModal=()=>{
+    console.log('triggered');
+     setModal(false)
+  }
+
+  
   console.log(props.user);
   return (
     <div style={{ height: 700 }}>
@@ -39,10 +48,12 @@ const ReactCalendar = (props) => {
         // date={new Date(2021, 11, 7)}
         onSelectEvent={(events) => {
           console.log(events);
+          setModal(true)
+          setUserDetails(events)
 
         }}
       />
-      {/* <Reac */}
+      <ReactModal modalValue= {modal} modalShow={handleModal} user={userDetails}/>
     </div>
   );
 };

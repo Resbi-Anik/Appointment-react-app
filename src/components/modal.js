@@ -1,51 +1,51 @@
-import React from 'react'
-import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
+import React from "react";
+import Modal from "react-bootstrap/Modal";
+import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const  MyVerticallyCenteredModal = (props) =>{
-    return (
-      <Modal
-        {...props}
-        size="lg"
-        aria-labelledby="contained-modal-title-vcenter"
-        centered
-      >
-        <Modal.Header closeButton>
-          <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={props.onHide}>Close</Button>
-        </Modal.Footer>
-      </Modal>
-    );
-  }
-  
-  const ReactModal=()=> {
-    const [modalShow, setModalShow] = React.useState(false);
-  
-    return (
-      <>
-        <Button variant="primary" onClick={() => setModalShow(true)}>
-          Launch vertically centered modal
-        </Button>
-  
-        <MyVerticallyCenteredModal
-          show={modalShow}
-          onHide={() => setModalShow(false)}
-        />
-      </>
-    );
-  }
+const MyVerticallyCenteredModal = (props) => {
+  return (
+    <Modal
+      {...props}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          Appointment Details
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Appiled memebers details:</h4>
+        <p>Username : {props.users.title}</p>
+        <p>Gender : {props.users.gender}</p>
+        <p>Age : {props.users.age}</p>
+        <p>Date: {props.users.date}</p>
+        <p>Time: {props.users.time}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={props.onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
 
-  export default ReactModal
+const ReactModal = (props) => {
+  const [modalShow, setModalShow] = React.useState(false);
+  const handleModalShow = () => {
+    props.modalShow(false);
+  };
+  return (
+    <>
+      {console.log("valueFromProps", props.user)}
+      <MyVerticallyCenteredModal
+        show={props.modalValue}
+        onHide={() => handleModalShow()}
+        users={props.user}
+      />
+    </>
+  );
+};
+
+export default ReactModal;
