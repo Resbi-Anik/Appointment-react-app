@@ -55,5 +55,4 @@ function mapStateToProps(state) {
   };
 }
 
-// export default ReactCalendar;
 export default connect(mapStateToProps, null)(ReactCalendar);
