@@ -6,8 +6,8 @@ import {
 import ReactCalendar from "./reactCalendar";
 import Button from "react-bootstrap/Button";
 import ReactDropdown from "./dropdowns";
-import SelectYear from '../static/year'
-import SelectMonth from '../static/month'
+import SelectYear from '../constant/year'
+import SelectMonth from '../constant/month'
 
 const Home = (props) => {
     let { year, month } = useParams();
