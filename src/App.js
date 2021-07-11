@@ -27,10 +27,3 @@ function App(props) {
 }
 
 export default App;
-{
-  /* <BrowserRouter>
-          <Switch>
-            <Route path="/login">
-              <LoginPage thruPanel/>
-            </Route> */
-}
