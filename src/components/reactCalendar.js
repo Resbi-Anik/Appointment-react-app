@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import ReactModal from "./modal";
-import "react-big-calendar/lib/css/react-big-calendar.css";
 import { connect } from "react-redux";
+import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
 const ReactCalendar = (props) => {
@@ -28,15 +28,10 @@ const ReactCalendar = (props) => {
   }
   props.user.sort(compare);
 
-  const CustomToolbar = () => {
-    return <></>;
-  };
-
   return (
     <div style={{ height: 700 }}>
       <Calendar
         events={props.user}
-        components={{ toolbar: CustomToolbar }}
         localizer={localizer}
         onNavigate
         views={["month"]}
