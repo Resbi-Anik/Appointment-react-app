@@ -15,9 +15,23 @@ const ReactCalendar = (props) => {
   };
 
   console.log("props.user", props.user);
-  // props.user
+  
+//Sort key value : time
+  function compare(a, b) {
+    console.log("sort", a.time);
+    const A = a.time;
+    const B = b.time;
 
-  const sortValue = objs.sort((a, b) => a.last_nom.localeCompare(b.last_nom));
+    let comparison = 0;
+    if (A > b) {
+      comparison = 1;
+    } else if (A < B) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+  props.user.sort(compare)
+
   return (
     <div style={{ height: 700 }}>
       <Calendar
@@ -53,8 +67,6 @@ const ReactCalendar = (props) => {
         //   },
         // ]}
         localizer={localizer}
-        // step={60}
-        // view="month"
         views={["month"]}
         // defaultView="week"
         // step={60}
