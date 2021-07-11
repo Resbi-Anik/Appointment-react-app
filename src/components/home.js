@@ -1,10 +1,13 @@
 import React, { useState } from "react";
 import ReactModal from "./modal";
-
+import {
+    useParams,
+  } from "react-router-dom";
 import ReactCalendar from "./reactCalendar";
 import Button from "react-bootstrap/Button";
 import ReactDropdown from "./dropdowns";
-const Home = () => {
+const Home = (props) => {
+    let { year, month } = useParams();
   const [modal, setModal] = useState(false);
   const handleModal = () => {
     console.log("triggered");
@@ -13,6 +16,7 @@ const Home = () => {
   const handleButtonForm = () => {
     setModal(true);
   };
+  console.log("year",year,month);
   return (
     <div>
       <Button variant="success" onClick={handleButtonForm}>
@@ -24,7 +28,7 @@ const Home = () => {
         createAppointment
         createModalShow={handleModal}
       />
-      <ReactCalendar />
+      <ReactCalendar yearValue={year} monthValue={month}/>
     </div>
   );
 }

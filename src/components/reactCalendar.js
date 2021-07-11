@@ -32,6 +32,8 @@ const ReactCalendar = (props) => {
   }
   props.user.sort(compare)
 
+  console.log('in react calendar', props.yearValue, props.monthValue);
+
   return (
     <div style={{ height: 700 }}>
       <Calendar
@@ -74,7 +76,7 @@ const ReactCalendar = (props) => {
         // defaultDate={new Date(2015, 3, 1)}
         min={new Date(2021, 2, 1)}
         max={new Date(2021, 11, 12)}
-        // date={new Date(2021, 11, 7)}
+        date={new Date(props.yearValue, props.monthValue-1, 1)}
         onSelectEvent={(events) => {
           console.log(events);
           setModal(true);
