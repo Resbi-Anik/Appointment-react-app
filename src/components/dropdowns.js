@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import { connect } from "react-redux";
 import { setSelectYearValue } from "../redux/action/selectYear";
 import { setSelectMonthValue } from "../redux/action/selectMonth";
+import styled from "styled-components";
 
 const ReactDropdown = (props) => {
   const [selectValue, setSelectValue] = useState(props.currentTime);
@@ -18,17 +19,21 @@ const ReactDropdown = (props) => {
       props.setSelectMonthValue(setTime);
     }
   };
+
+  const Select = styled.select`
+  width: 20%;
+`;
   return (
     <>
-      <select name="cars" id="cars" value={selectValue} onChange={handleChange}>
+      <Select name="cars" id="cars" value={selectValue} onChange={handleChange}>
         {props.value.map((propValue, key) => {
           return (
-            <option value={propValue} key={propValue+3}>
+            <option value={propValue} key={propValue + 3}>
               {propValue}
             </option>
           );
         })}
-      </select>
+      </Select>
     </>
   );
 };
