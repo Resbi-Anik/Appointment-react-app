@@ -4,6 +4,7 @@ import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const MyVerticallyCenteredModal = (props) => {
+  console.log('props.users',props.users);
   return (
     <Modal
       {...props}
@@ -17,12 +18,16 @@ const MyVerticallyCenteredModal = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <h4>Appiled memebers details:</h4>
-        <p>Username : {props.users.title}</p>
-        <p>Gender : {props.users.gender}</p>
-        <p>Age : {props.users.age}</p>
-        <p>Date: {props.users.date}</p>
-        <p>Time: {props.users.time}</p>
+        {props.users ? (
+          <div>
+            <h4>Appiled memebers details:</h4>
+            <p>Username : {props.users.title}</p>
+            <p>Gender : {props.users.gender}</p>
+            <p>Age : {props.users.age}</p>
+            <p>Date: {props.users.start}</p>
+            <p>Time: {props.users.time}</p>
+          </div>
+        ) : null}
       </Modal.Body>
       <Modal.Footer>
         <Button onClick={props.onHide}>Close</Button>
