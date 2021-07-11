@@ -6,6 +6,7 @@ import Button from "react-bootstrap/Button";
 import ReactDropdown from "./dropdowns";
 import SelectYear from "../constant/year";
 import SelectMonth from "../constant/month";
+import styled from "styled-components";
 
 const Home = (props) => {
   let { year, month } = useParams();
@@ -17,16 +18,24 @@ const Home = (props) => {
     setModal(true);
   };
 
+  const CreateButton = styled.div`
+    display: flex;
+    justify-content: flex-end;
+  `;
+
   return (
     <div>
-      <Button variant="success" onClick={handleButtonForm}>
-        Create Appointment
-      </Button>
+      <CreateButton>
+        <Button variant="success" onClick={handleButtonForm}>
+          Create Appointment
+        </Button>
+      </CreateButton>
       <ReactDropdown
         value={SelectYear}
         currentTime={new Date().getFullYear()}
         type="year"
       />
+      &nbsp; &nbsp; &nbsp;
       <ReactDropdown
         value={SelectMonth}
         currentTime={new Date().getMonth() + 1}
