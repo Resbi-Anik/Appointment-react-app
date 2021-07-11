@@ -4,8 +4,9 @@ import moment from "moment";
 import ReactModal from "./modal";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { connect } from "react-redux";
-const localizer = momentLocalizer(moment);
+import styled from "styled-components";
 
+const localizer = momentLocalizer(moment);
 const ReactCalendar = (props) => {
   const [modal, setModal] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
@@ -28,10 +29,15 @@ const ReactCalendar = (props) => {
   }
   props.user.sort(compare);
 
+  const CustomToolbar = () => {
+    return <></>;
+  };
+
   return (
     <div style={{ height: 700 }}>
       <Calendar
         events={props.user}
+        components={{ toolbar: CustomToolbar }}
         localizer={localizer}
         views={["month"]}
         date={new Date(props.yearValue, props.monthValue - 1, 1)}
@@ -40,6 +46,7 @@ const ReactCalendar = (props) => {
           setUserDetails(events);
         }}
       />
+
       <ReactModal
         modalValue={modal}
         modalShow={handleModal}
