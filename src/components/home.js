@@ -13,13 +13,12 @@ const Home = (props) => {
     let { year, month } = useParams();
   const [modal, setModal] = useState(false);
   const handleModal = () => {
-    console.log("triggered");
     setModal(false);
   };
   const handleButtonForm = () => {
     setModal(true);
   };
-  console.log("year",year,month);
+
   return (
     <div>
       <Button variant="success" onClick={handleButtonForm}>

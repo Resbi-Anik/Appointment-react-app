@@ -39,7 +39,6 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    //   setUserValue: (data) => dispatch(setUserValue(data)),
     setSelectMonthValue: (data) => dispatch(setSelectMonthValue(data)),
     setSelectYearValue: (data) => dispatch(setSelectYearValue(data)),
   };

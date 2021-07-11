@@ -5,7 +5,6 @@ const initialState = {
 
 
 export default function userYearReducer(state = initialState, action) {
-  // console.log("state",state.user);
   switch (action.type) {
     case SET_SELECT_YEAR_VALUE:
       return {

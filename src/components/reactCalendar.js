@@ -10,15 +10,11 @@ const ReactCalendar = (props) => {
   const [modal, setModal] = useState(false);
   const [userDetails, setUserDetails] = useState(null);
   const handleModal = () => {
-    console.log("triggered");
     setModal(false);
   };
-
-  console.log("props.user", props.user);
   
 //Sort key value : time
   function compare(a, b) {
-    console.log("sort", a.time);
     const A = a.time;
     const B = b.time;
 
@@ -32,53 +28,14 @@ const ReactCalendar = (props) => {
   }
   props.user.sort(compare)
 
-  console.log('in react calendar', props.yearValue, props.monthValue);
-
   return (
     <div style={{ height: 700 }}>
       <Calendar
         events={props.user}
-        // events={[
-        //   {
-        //     title: "My event",
-        //     allDay: false,
-        //     start: new Date(2021, 6, 10), // 10.00 AM
-        //     end: new Date(2021, 6, 10), // 2.00 PM
-
-        //   },
-        //   {
-        //     title: "My event",
-        //     allDay: false,
-        //     start: new Date(2021, 6, 10), // 10.00 AM
-        //     end: new Date(2021, 6, 10), // 2.00 PM
-
-        //   },
-        //   {
-        //     title: "My event",
-        //     allDay: false,
-        //     start: new Date(2021, 6, 10), // 10.00 AM
-        //     end: new Date(2021, 6, 10), // 2.00 PM
-
-        //   },
-        //   {
-        //     title: "My event",
-        //     allDay: false,
-        //     start: new Date(2021, 6, 10), // 10.00 AM
-        //     end: new Date(2021, 6, 10), // 2.00 PM
-
-        //   },
-        // ]}
         localizer={localizer}
         views={["month"]}
-        // defaultView="week"
-        // step={60}
-        // views={"allViews"}
-        // defaultDate={new Date(2015, 3, 1)}
-        // min={new Date(2021, 2, 1)}
-        // max={new Date(2021, 11, 12)}
         date={new Date(props.yearValue, props.monthValue-1, 1)}
         onSelectEvent={(events) => {
-          console.log(events);
           setModal(true);
           setUserDetails(events);
         }}

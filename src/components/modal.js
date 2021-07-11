@@ -5,7 +5,6 @@ import Form from "./form";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const ShowUsers = (props) => {
-  console.log("props.users", props.users);
   return (
     <Modal
       {...props}
@@ -70,7 +69,6 @@ const ReactModal = (props) => {
   };
   return (
     <>
-      {console.log("valueFromProps", props.createModalValue)}
       {props.createAppointment ? (
         <CreateUsers
           show={props.createModalValue}

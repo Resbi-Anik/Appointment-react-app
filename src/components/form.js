@@ -12,7 +12,6 @@ const Form = (props) => {
   } = useForm();
 
   const onSubmit = (value) => {
-    console.log("val", value);
     value["end"] = value.start;
     props.setUserValue(value);
   };
