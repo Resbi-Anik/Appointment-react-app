@@ -1,5 +1,9 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import { connect } from "react-redux";
+import { setSelectYearValue } from "../redux/action/selectYear";
+import { setSelectMonthValue } from "../redux/action/selectMonth";
+
 
 const ReactDropdown = (props) => {
   const [selectValue, setSelectValue] = useState(props.currentTime);
@@ -7,13 +11,13 @@ const ReactDropdown = (props) => {
   const handleChange = (e) => {
     setSelectValue(e.target.value);
     const setTime = e.target.value;
-    if(props.type==='year'){
-        history.push('/'+setTime+'/7')
-    } 
-    else{
-        history.push('/2021/'+setTime)
+    if (props.type === "year") {
+      history.push("/" + setTime + "/" + props.selectMonth);
+      props.setSelectYearValue(setTime);
+    } else {
+      history.push("/" + props.selectYear + "/" + setTime);
+      props.setSelectMonthValue(setTime);
     }
-   
   };
   return (
     <>
@@ -26,4 +30,18 @@ const ReactDropdown = (props) => {
   );
 };
 
-export default ReactDropdown;
+function mapStateToProps(state) {
+  return {
+    selectMonth: state.userMonthReducer.selectMonth,
+    selectYear: state.userYearReducer.selectYear,
+  };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    //   setUserValue: (data) => dispatch(setUserValue(data)),
+    setSelectMonthValue: (data) => dispatch(setSelectMonthValue(data)),
+    setSelectYearValue: (data) => dispatch(setSelectYearValue(data)),
+  };
+}
+export default connect(mapStateToProps, mapDispatchToProps)(ReactDropdown);
