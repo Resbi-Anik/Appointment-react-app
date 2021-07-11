@@ -59,7 +59,7 @@ const CreateUsers = (props) => {
   );
 };
 
-const ReactModal = (props) => {  
+const ReactModal = (props) => {
   const handleModalShow = () => {
     props.modalShow(false);
   };

@@ -13,9 +13,7 @@ function App(props) {
             exact
             path="/"
             component={() => (
-              <Redirect
-                to={"/" + new Date().getFullYear() + "/" + month}
-              />
+              <Redirect to={"/" + new Date().getFullYear() + "/" + month} />
             )}
           />
           <Route path="/:year/:month">

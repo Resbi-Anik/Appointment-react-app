@@ -12,8 +12,8 @@ const ReactCalendar = (props) => {
   const handleModal = () => {
     setModal(false);
   };
-  
-//Sort key value : time
+
+  //Sort key value : time
   function compare(a, b) {
     const A = a.time;
     const B = b.time;
@@ -26,7 +26,7 @@ const ReactCalendar = (props) => {
     }
     return comparison;
   }
-  props.user.sort(compare)
+  props.user.sort(compare);
 
   return (
     <div style={{ height: 700 }}>
@@ -34,7 +34,7 @@ const ReactCalendar = (props) => {
         events={props.user}
         localizer={localizer}
         views={["month"]}
-        date={new Date(props.yearValue, props.monthValue-1, 1)}
+        date={new Date(props.yearValue, props.monthValue - 1, 1)}
         onSelectEvent={(events) => {
           setModal(true);
           setUserDetails(events);

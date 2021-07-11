@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { setSelectYearValue } from "../redux/action/selectYear";
 import { setSelectMonthValue } from "../redux/action/selectMonth";
 
-
 const ReactDropdown = (props) => {
   const [selectValue, setSelectValue] = useState(props.currentTime);
   let history = useHistory();
