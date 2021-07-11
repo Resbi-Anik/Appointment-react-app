@@ -8,12 +8,14 @@ const Form = (props) => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (value) => {
     value["end"] = value.start;
     props.setUserValue(value);
+    reset();
   };
 
   const Label = styled.label`
