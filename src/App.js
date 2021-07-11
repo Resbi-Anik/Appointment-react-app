@@ -1,22 +1,25 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Home from "./components/home";
-import {
-  BrowserRouter,
-  Router,
-  Switch,
-  Route,
-  withRouter,
-  useParams,
-} from "react-router-dom";
+import { BrowserRouter, Switch, Route, Redirect } from "react-router-dom";
 import NotFound from "./404";
 
 function App(props) {
+  const month = new Date().getMonth() + 1;
   return (
     <div>
       <BrowserRouter>
         <Switch>
-          <Route path="/home/:year/:month">
-            <Home/>
+          <Route
+            exact
+            path="/"
+            component={() => (
+              <Redirect
+                to={"/" + new Date().getFullYear() + "/" + month}
+              />
+            )}
+          />
+          <Route path="/:year/:month">
+            <Home />
           </Route>
           <Route component={NotFound} />
         </Switch>

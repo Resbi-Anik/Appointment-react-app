@@ -1,8 +1,16 @@
 import React from 'react'
+import styled from "styled-components";
+
+const Not= styled.div`
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+`
 
 const NotFound=()=>{
     return(
-        <div>404 not found</div>
+        <Not>404 not found</Not>
     )
 }
 
