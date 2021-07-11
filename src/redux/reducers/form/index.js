@@ -8,7 +8,7 @@ export default function userReducer(state = initialState, action) {
     case SET_USER_VALUE:
       return {
         ...state,
-        user: state.user.concat(action.value),
+        user: [...state.user,action.value],
       };
     default:
       return state;

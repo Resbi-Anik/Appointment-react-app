@@ -11,7 +11,8 @@ const Form = (props) => {
   } = useForm();
 
   const onSubmit = (value) => {
-    console.log(value);
+    console.log('val',value);
+    value['end']=value.start;
     props.setUserValue(value)
   };
 
@@ -22,7 +23,7 @@ const Form = (props) => {
         <input
           type="text"
           placeholder="username"
-          {...register("username", { required: true })}
+          {...register("title", { required: true })}
         />
         {errors.username && <span>Name is required</span>}
         <br />
@@ -54,7 +55,7 @@ const Form = (props) => {
         <label>Date</label>
         <input
           type="date"
-          {...register("date")}
+          {...register("start")}
           min={new Date().toISOString().substring(0, 10)}
         />
         <br />

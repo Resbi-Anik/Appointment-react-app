@@ -1,10 +1,12 @@
-import './App.css';
-import Form from './components/form';
-
+import React, { useState } from "react";
+// import ReactModal from "./components/modal";
+import Form from "./components/form";
+import ReactCalendar from "./components/reactCalendar";
 function App() {
   return (
-    <div className="App">
+    <div>
       <Form />
+     <ReactCalendar />
     </div>
   );
 }
