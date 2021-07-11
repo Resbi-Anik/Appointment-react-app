@@ -6,6 +6,9 @@ import {
 import ReactCalendar from "./reactCalendar";
 import Button from "react-bootstrap/Button";
 import ReactDropdown from "./dropdowns";
+import SelectYear from '../static/year'
+import SelectMonth from '../static/month'
+
 const Home = (props) => {
     let { year, month } = useParams();
   const [modal, setModal] = useState(false);
@@ -22,7 +25,8 @@ const Home = (props) => {
       <Button variant="success" onClick={handleButtonForm}>
         Create Appointment
       </Button>
-      <ReactDropdown />
+      <ReactDropdown value ={SelectYear} currentTime={new Date().getFullYear()} type='year'/>
+      <ReactDropdown value ={SelectMonth} currentTime={new Date().getMonth() + 1}/>
       <ReactModal
         createModalValue={modal}
         createAppointment

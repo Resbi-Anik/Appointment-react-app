@@ -1,19 +1,28 @@
-import React from "react";
-import Dropdown from "react-bootstrap/Dropdown";
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 
-const ReactDropdown = () => {
+const ReactDropdown = (props) => {
+  const [selectValue, setSelectValue] = useState(props.currentTime);
+  let history = useHistory();
+  const handleChange = (e) => {
+    setSelectValue(e.target.value);
+    const setTime = e.target.value;
+    if(props.type==='year'){
+        history.push('/'+setTime+'/7')
+    } 
+    else{
+        history.push('/2021/'+setTime)
+    }
+   
+  };
   return (
-    <Dropdown variant="Secondary">
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
+    <>
+      <select name="cars" id="cars" value={selectValue} onChange={handleChange}>
+        {props.value.map((propValue, key) => {
+          return <option value={propValue}>{propValue}</option>;
+        })}
+      </select>
+    </>
   );
 };
 

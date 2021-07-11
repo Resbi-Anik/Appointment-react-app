@@ -61,7 +61,6 @@ const CreateUsers = (props) => {
 };
 
 const ReactModal = (props) => {  
-  const [modalShow, setModalShow] = React.useState(false);
   const handleModalShow = () => {
     props.modalShow(false);
   };
@@ -76,7 +75,6 @@ const ReactModal = (props) => {
         <CreateUsers
           show={props.createModalValue}
           onHide={() => handleCreateModalShow()}
-          // users={props.user}
         />
       ) : (
         <ShowUsers
