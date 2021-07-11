@@ -39,6 +39,17 @@ const Form = (props) => {
     color: green;
   `;
 
+  const Input = styled.input`
+    ::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    ::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  `;
+
   return (
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -55,7 +66,7 @@ const Form = (props) => {
         <Label>
           <lebel>Age</lebel>
         </Label>
-        <input
+        <Input
           type="number"
           {...register("age", { required: true, maxLength: 2 })}
         />
