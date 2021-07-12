@@ -3,6 +3,7 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import ReactModal from "./modal";
 import { connect } from "react-redux";
+import styled from "styled-components";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 
 const localizer = momentLocalizer(moment);
@@ -28,26 +29,34 @@ const ReactCalendar = (props) => {
   }
   props.user.sort(compare);
 
-  return (
-    <div style={{ height: 700 }}>
-      <Calendar
-        events={props.user}
-        localizer={localizer}
-        onNavigate
-        views={["month"]}
-        date={new Date(props.yearValue, props.monthValue - 1, 1)}
-        onSelectEvent={(events) => {
-          setModal(true);
-          setUserDetails(events);
-        }}
-      />
+  const CustomCal = styled.div`
+    .rbc-btn-group {
+      display: none;
+    }
+  `;
 
-      <ReactModal
-        modalValue={modal}
-        modalShow={handleModal}
-        user={userDetails}
-      />
-    </div>
+  return (
+    <CustomCal>
+      <div style={{ height: 700 }}>
+        <Calendar
+          events={props.user}
+          localizer={localizer}
+          onNavigate
+          views={["month"]}
+          date={new Date(props.yearValue, props.monthValue - 1, 1)}
+          onSelectEvent={(events) => {
+            setModal(true);
+            setUserDetails(events);
+          }}
+        />
+
+        <ReactModal
+          modalValue={modal}
+          modalShow={handleModal}
+          user={userDetails}
+        />
+      </div>
+    </CustomCal>
   );
 };
 
